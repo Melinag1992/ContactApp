@@ -13,11 +13,8 @@ public interface ReqResService {
     @GET("api/users")
         Call<UserObject> getUsers();
 
-    @POST("user")
+    @POST("api/users")
     Call<Person>createCandidate(@Body Person postNewUser);
-
-
-
 
 
 }
