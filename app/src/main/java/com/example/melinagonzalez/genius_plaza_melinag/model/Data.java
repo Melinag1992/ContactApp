@@ -2,7 +2,7 @@ package com.example.melinagonzalez.genius_plaza_melinag.model;
 
 import java.io.Serializable;
 
-public class Data implements Serializable {
+public class Data  {
     private String avatar;
     private String last_name;
     private String first_name;
