@@ -6,19 +6,21 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
+import android.view.View;
 
 import com.example.melinagonzalez.genius_plaza_melinag.backend.ReqResService;
 import com.example.melinagonzalez.genius_plaza_melinag.controller.UserAdapter;
 import com.example.melinagonzalez.genius_plaza_melinag.model.Data;
+import com.example.melinagonzalez.genius_plaza_melinag.model.Person;
 import com.example.melinagonzalez.genius_plaza_melinag.model.UserObject;
 import com.example.melinagonzalez.genius_plaza_melinag.retrofit.RetrofitSingleInstance;
+import com.getbase.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private UserAdapter userAdapter;
     private LinearLayoutManager linearLayoutManager;
     private RecyclerView userRecyclerView;
+    private FloatingActionButton floatingActionButton;
 
 
     @Override
@@ -37,8 +40,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        floatingActionButton = findViewById(R.id.fab);
+
+
         setUpRecyclerView();
         getuserlist();
+
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO
+
+            }
+        });
     }
 
     public void setUpRecyclerView() {
@@ -73,11 +87,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.option_menu, menu);
-        return true;
-    }
+
+
+
+
+
+
+
+
 
 }

@@ -14,7 +14,7 @@ public interface ReqResService {
         Call<UserObject> getUsers();
 
     @POST("api/users")
-    Call<Person>createCandidate(@Body Person postNewUser);
+    Call<Person> createNewUser(@Body Person postNewUser);
 
 
 }

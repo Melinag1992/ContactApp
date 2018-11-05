@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    >
+
+
+
+    <TextView
+        android:id="@+id/add_user"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/name"
+        android:text="Tell me about the user.. "
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="@color/geniusBlue"
+        />
+
+    <EditText
+        android:id="@+id/first_name_au"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="49dp"
+        android:hint="First name" />
+
+
+    <EditText
+        android:id="@+id/last_name_au"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/name"
+        android:layout_below="@+id/name"
+        android:layout_marginTop="14dp"
+        android:hint="Last name" />
+
+    <EditText
+        android:id="@+id/job"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/name"
+        android:layout_below="@+id/name"
+        android:layout_marginTop="14dp"
+        android:hint="Current job" />
+
+
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp"
+        android:background="@color/geniusBlue"
+        android:text="save"
+        android:textColor="@android:color/white" />
+
+</LinearLayout>
