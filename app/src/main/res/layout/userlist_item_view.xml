@@ -1,6 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:elevation="3dp"
+        app:cardCornerRadius="3dp">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/avatar_imageview"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_launcher_background"
+                app:civ_border_color="@color/geniusOrange"
+                app:civ_border_width="2dp"
+                />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:gravity="bottom">
+
+                <TextView
+                    android:id="@+id/last_name"
+                    android:text="Jeffrey"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/geniusBlue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                   />
+
+                <TextView
+                    android:id="@+id/first_name"
+                    android:text="Jorge"
+                    android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
 
 </LinearLayout>
