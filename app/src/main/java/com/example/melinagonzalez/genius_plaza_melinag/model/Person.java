@@ -2,7 +2,7 @@ package com.example.melinagonzalez.genius_plaza_melinag.model;
 
 import java.io.Serializable;
 
-public class Person implements Serializable {
+public class Person  {
 
 
     private String last_name;
@@ -28,4 +28,6 @@ public class Person implements Serializable {
     public void setJob(String job) {
         this.job = job;
     }
+
+
 }

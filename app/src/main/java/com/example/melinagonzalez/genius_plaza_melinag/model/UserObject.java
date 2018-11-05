@@ -2,7 +2,7 @@ package com.example.melinagonzalez.genius_plaza_melinag.model;
 
 import java.util.List;
 
-public abstract class UserObject {
+public class UserObject {
 
 
     private List<Data> data;
@@ -11,6 +11,10 @@ public abstract class UserObject {
     private int per_page;
     private int page;
 
+
+    public UserObject(){
+
+    }
     public List<Data> getData() {
         return data;
     }
