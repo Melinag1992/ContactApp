@@ -5,20 +5,25 @@ import java.io.Serializable;
 public class Person  {
 
 
-    private String last_name;
-    private String job;
 
-    public Person(String last_name, String job) {
-        this.last_name = last_name;
+    private String job;
+    private String name;
+
+    public Person(){
+
+    }
+
+    public Person(String name, String job) {
+        this.name = name;
         this.job = job;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public String get_name() {
+        return name;
     }
 
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public void set_name(String last_name) {
+        this.name = last_name;
     }
 
     public String getJob() {

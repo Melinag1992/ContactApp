@@ -40,4 +40,15 @@ public class UserAdapter extends RecyclerView.Adapter<UserViewHolder> {
     public int getItemCount() {
         return userList.size();
     }
+
+    public void setList(List<Data> list) {
+        userList = list;
+        notifyDataSetChanged();
+    }
+
+    public void addAll(List<Data> newList) {
+        int lastIndex = userList.size() - 1;
+        userList.addAll(newList);
+        notifyItemRangeInserted(lastIndex, newList.size());
+    }
 }
