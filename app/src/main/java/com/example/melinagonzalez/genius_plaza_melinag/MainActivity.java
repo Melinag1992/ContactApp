@@ -2,11 +2,14 @@ package com.example.melinagonzalez.genius_plaza_melinag;
 
 
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 
@@ -33,9 +36,9 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayoutManager linearLayoutManager;
     private RecyclerView userRecyclerView;
     private FloatingActionButton floatingActionButton;
+    private ActionBar toolbar;
     private boolean isLoading;
     private boolean isLastPage;
-    private boolean isFirstPage;
     private int currentPage = 0;
 
 
@@ -43,6 +46,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        toolbar = getSupportActionBar();
+        toolbar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.geniusOrange)));
+        toolbar.setTitle("Genius Plaza");
+
+
         floatingActionButton = findViewById(R.id.fab);
         floatingActionButton.setBackgroundTintList((getResources().getColorStateList(R.color.geniusWhite)));
 
@@ -67,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         // amount of items you want to load per page
         final int pageSize = 3;
 
-        // set up scroll listener
+
         userRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
@@ -89,14 +98,13 @@ public class MainActivity extends AppCompatActivity {
                 // flag to know whether to load more
                 boolean shouldLoadMore = isValidFirstItem && isAtLastItem && totalIsMoreThanVisible && isNotLoadingAndNotLastPage;
 
-                if (shouldLoadMore) getuserlist(false);
+                if (shouldLoadMore) getUserList(false);
             }
         });
 
         // load the first page
-        getuserlist(true);
+        getUserList(true);
     }
-
 
     public void setUpRecyclerView() {
         userRecyclerView = findViewById(R.id.recyclerview);
@@ -109,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void getuserlist(final boolean isFirstPage) {
+    public void getUserList(final boolean isFirstPage) {
 
         isLoading = true;
         currentPage = currentPage + 1;
@@ -121,19 +129,19 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<UserObject> call, Response<UserObject> response) {
 
 
-                if (response.body().getData() == null) {
-                    return;
-                } else if (!isFirstPage) {
+                    if (response.body().getData() == null) {
+                        return;
+                    } else if (!isFirstPage) {
 
-                    userAdapter.addAll(response.body().getData());
-                } else {
-                    userAdapter.setList(response.body().getData());
+                        userAdapter.addAll(response.body().getData());
+                    } else {
+                        userAdapter.setList(response.body().getData());
+                    }
+
+                    isLoading = false;
+                    isLastPage = currentPage == response.body().getTotal_pages();
+
                 }
-
-                isLoading = false;
-                isLastPage = currentPage == response.body().getTotal_pages();
-
-            }
 
             @Override
             public void onFailure(Call<UserObject> call, Throwable t) {
