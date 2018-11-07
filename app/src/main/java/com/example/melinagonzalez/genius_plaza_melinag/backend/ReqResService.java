@@ -7,14 +7,18 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface ReqResService {
-    @GET("api/users")
-        Call<UserObject> getUsers();
+//    @GET("api/users")
+//    Call<UserObject> getUsers();
 
     @POST("api/users")
     Call<Person> createNewUser(@Body Person postNewUser);
+
+    @GET("api/users")
+    Call<UserObject> getUsers(@Query("page") int pageNum );
 
 
 }
