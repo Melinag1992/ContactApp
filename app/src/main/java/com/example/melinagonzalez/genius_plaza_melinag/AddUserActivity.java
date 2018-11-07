@@ -2,7 +2,9 @@ package com.example.melinagonzalez.genius_plaza_melinag;
 
 
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -37,12 +39,22 @@ public class AddUserActivity extends AppCompatActivity {
     private String firstNameParsed;
     private String lastNameParsed;
     private String TAG = "Post user retrofit Call";
+    private ActionBar toolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.adduserlayout);
         ButterKnife.bind(this);
+
+        toolbar = getSupportActionBar();
+        toolbar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.geniusOrange)));
+        toolbar.setTitle("Genius Plaza");
+
+
+
+
 
 
 
